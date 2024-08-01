@@ -22,7 +22,7 @@ const InputForm = () => {
       formData.append("image", data.image[0]);
 
       const response = await fetch(
-        "http://127.0.0.1:8080/api/v1/public/upload-video",
+        "https://effective-goggles-pvg9pqr47g9frp6-8080.app.github.dev/api/v1/public/upload-video",
         {
           method: "POST",
           // headers: {
@@ -34,7 +34,7 @@ const InputForm = () => {
       const results = await response.json();
       if (results.status === "success") {
         const new_api = await fetch(
-          `http://127.0.0.1:8080/api/v1/public/show-video/static/videos/${results.path}`,
+          `https://effective-goggles-pvg9pqr47g9frp6-8080.app.github.dev/api/v1/public/show-video/static/videos/${results.path}`,
           {
             method: "GET",
           }
@@ -54,6 +54,7 @@ const InputForm = () => {
               <img
                 src={video}
                 alt=""
+                
                 className="w-full h-full object-cover rounded-md"
               />
             )}

@@ -12,8 +12,15 @@ from pymongo import MongoClient
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
 import datetime
 
-client = MongoClient("localhost", 27017)
+client = MongoClient("mongodb+srv://admin:admin@cluster0.btod3oq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 mongo_db = client.flask_database
+# users_collection = mongo_db['users_collection']
+
+# users_collection.insert_one({
+#     "username": "newuser",
+#     "password": "hashed_password_here",
+#     "email": "newuser@example.com"
+# })
 
 # CLOUDINARY
 import cloudinary
@@ -47,7 +54,7 @@ app.register_blueprint(emails)
 
 accidents_collection = mongo_db.accidents
 users_collection = mongo_db.users
-CORS(app, origins=["http://localhost:3000"], supports_credentials=True)
+CORS(app, origins=["*"], supports_credentials=True)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)

@@ -105,7 +105,7 @@ async def main():
         #         isSendMail = True
 
         # Displaying the video
-        cv2.imshow("Video Capture", img)
+        cv2.imwrite("output.jpg", img)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 

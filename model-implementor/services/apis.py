@@ -1,7 +1,7 @@
 import httpx
 
-API_URL = "http://127.0.0.1:8080/api/v1/accident/create"
-SEND_MAIL_URL = "http://127.0.0.1:8080/api/v1/emails/send-email"
+API_URL = "https://effective-goggles-pvg9pqr47g9frp6-8080.app.github.dev/api/v1/accident/create"
+SEND_MAIL_URL = "https://effective-goggles-pvg9pqr47g9frp6-8080.app.github.dev/api/v1/emails/send-email"
 
 async def post_accident_data(data):
     async with httpx.AsyncClient() as client:

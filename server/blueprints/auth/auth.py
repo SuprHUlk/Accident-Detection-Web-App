@@ -6,7 +6,7 @@ from flask_jwt_extended import create_access_token
 from pymongo import MongoClient
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/api/v1/auth')
-client = MongoClient("localhost", 27017)
+client = MongoClient("mongodb+srv://admin:admin@cluster0.btod3oq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 mongo_db = client.flask_database
 
 # COLLECTION FOR THE USERS AND ACCIDENT...
@@ -18,6 +18,7 @@ users_collection = mongo_db.users
 @cross_origin(supports_credentials=True)
 def login():
     login_details = request.get_json()
+    print(12312321)
     user_from_db = users_collection.find_one({'username': login_details['username']})
     if user_from_db:
         print("🔥")

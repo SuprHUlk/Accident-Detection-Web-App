@@ -25,8 +25,8 @@ export default function LoginForm({}: Props) {
     handleSubmit,
   } = useForm<FormData>({
     defaultValues: {
-      email: "gurungebraj22@gmail.com",
-      password: "Test@1234",
+      email: "ayush@gmail.com",
+      password: "pass",
     },
     resolver: zodResolver(LoginSchema),
   });
@@ -37,7 +37,7 @@ export default function LoginForm({}: Props) {
     });
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8080/api/v1/auth/login",
+        "https://effective-goggles-pvg9pqr47g9frp6-8080.app.github.dev/api/v1/auth/login",
         {
           username: data.email,
           password: data.password,

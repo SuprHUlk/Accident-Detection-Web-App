@@ -6,7 +6,7 @@ import base64
 
 # Blueprint and the mongo db collection setup...
 accident_bp = Blueprint('accident', __name__, url_prefix='/api/v1/accident')
-client = MongoClient("localhost", 27017)
+client = MongoClient("mongodb+srv://admin:admin@cluster0.btod3oq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 mongo_db = client.flask_database
 accidents_collection = mongo_db.accidents
 users_collection = mongo_db.users
@@ -24,6 +24,7 @@ load_dotenv()
 def create_accident():
     if request.method == 'POST':
         accident_data = request.get_json()
+        print(accident_data)
 
         frame_base64 = accident_data.get('frame', '')
         frame_bytes = base64.b64decode(frame_base64)
